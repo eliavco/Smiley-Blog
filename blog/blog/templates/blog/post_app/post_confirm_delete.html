@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+  <h1 class="display-4">Are you sure that you want to delete "{{ object }}"?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Confirm">
+    <a class="btn btn-info" href="{% url 'post_app:list' %}">Cancel</a>
+  </form>
+{% endblock %}

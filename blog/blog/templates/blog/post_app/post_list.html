@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+  <h1 class="display-4">List of all Posts!</h1>
+  <div class="centerstage">
+    {% for post in post_list %}
+    <div class="post">
+      <h2 class="lead"><a href="{% url 'post_app:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+      <div class="date">
+        <p>Published On: {{ post.published_date|date:"D M Y" }}</p>
+      </div>
+      <a href="{% url 'post_app:post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
