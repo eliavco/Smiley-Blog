@@ -2,6 +2,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
-  <h1>Hi! Welcome to the SMILEY BLOG!</h1>
-  <h2>You can post, read and comment messages!</h2>
+  <h1 class="display-4">Hi! Welcome to the SMILEY BLOG!</h1>
+  <h2 class="lead">You can post, read and comment messages!</h2>
+  <hr class="my-4">
+  <p>To have full control of the site, yoy have to be a superuser.</p>
+  <p><strong>Contact the Site Manager: </strong>eliav.s.cohen@gmail.com</p>
+  <a class="btn btn-primary btn-lg" href="{% url 'post_app:new_post' %}" role="button">Create a Post</a>
 {% endblock %}
