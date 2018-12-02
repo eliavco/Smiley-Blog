@@ -3,5 +3,5 @@ from post_app import views
 app_name = "post_app"
 
 urlpatterns = [
-    path('',views.Home.as_view(),name="home"),
+    path('',views.About.as_view(),name="about"),
 ]

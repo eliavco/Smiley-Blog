@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import (TemplateView,ListView,DetailView,CreateView,UpdateView)
+from django.views.generic import (TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView)
 
 from post_app.models import Comment,Post
 from post_app.forms import CommentForm,PostForm
@@ -11,8 +11,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy
 # Create your views here.
-class Home(TemplateView):
-    template_name = 'home.html'
+class About(TemplateView):
+    template_name = 'about.html'
 
 class PostListView(ListView):
     model = Post
@@ -60,7 +60,7 @@ def post_publish(request,pk):
     return redirect('post_detail',pk=pk)
 
 @login_required
-def add_comment_to_post(request, pk=pk):
+def add_comment_to_post(request, pk):
     post = get_object_or_404(Post,pk=pk)
     if request.method == 'POST':
         form = CommentForm(request.POST)
